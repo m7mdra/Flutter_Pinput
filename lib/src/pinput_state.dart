@@ -390,6 +390,7 @@ class _PinputState extends State<Pinput>
           onChanged: (value) {
             field.didChange(value);
             _maybeUseHaptic(widget.hapticFeedbackType);
+            _maybeValidateForm();
           },
           expands: false,
           showCursor: false,
@@ -544,7 +545,7 @@ class _PinputState extends State<Pinput>
   }
 
   @protected
-  bool get showErrorState => hasError && (!hasFocus || widget.forceErrorState);
+  bool get showErrorState => hasError;
 
   Widget _buildError() {
     if (showErrorState) {
